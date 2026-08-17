@@ -86,8 +86,7 @@ def VarT(tau, T):
         y = y / I1a
     return y
 
-# ── count <-> N_pts (Na, Nb independent of T; direct linear inversion) ─────
-
+#count 
 def computeNaNb(tau_a, tau_b, T_on, T_off):
     A = tau_a / (tau_a + tau_b)
     B = tau_b / (tau_a + tau_b)
@@ -106,7 +105,7 @@ def Npts_from_countA(countA, tau_a, tau_b, T_on, T_off, f0):
     T = M * (T_on + T_off)
     return T * f0
 
-# ── core computation ────────────────────────────────────────────────────────
+# core computation
 
 def computeDM(tau_a, tau_b, T_on, T_off, f0, N_pts):
     alpha   = 0.05
@@ -190,8 +189,7 @@ def computeDM(tau_a, tau_b, T_on, T_off, f0, N_pts):
     Rebias_total = abs(Bias_a) / tau_a * 100 + abs(Bias_b) / tau_b * 100
     return Rebias_total, Rerr_total, Bias_a, Bias_b, Std_a, Std_b, M, Na, Nb
 
-# ── UI ─────────────────────────────────────────────────────────────────────
-
+#  UI
 col1, col2 = st.columns(2)
 with col1:
     tau_a = st.number_input(r"$\tau_a$ (s)", min_value=1e-9, value=1.0, format="%.4f")
