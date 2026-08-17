@@ -1,8 +1,6 @@
 # Dwell-time analysis tools
 
-Interactive tools for the accuracy and precision limits of dwell-time analysis of
-two-state and three-state Markov processes, in Continuous Mode (CM) and
-DyeCycling Mode (DM).
+Tools for analyze uncertainty  uncertainties in the kinetic rates inference from two-state and three-state Markov processes, in Continuous Mode (CM) and DyeCycling Mode (DM).
 
 ## Tools
 
@@ -35,15 +33,9 @@ Requires Python 3.9 or newer.
 
 ## Notes
 
-- Simulation runtime scales as (trace length / dt) x (number of traces) x
-  (Monte Carlo runs). The defaults in the app are reduced so that a run finishes
-  interactively; the production settings used in the paper are considerably
-  larger and are best run locally or on a cluster.
-- The three-state models assume symmetric branching: every state splits its exit
-  rate equally between the two other states. This satisfies detailed balance and
+- The three-state models assume: every state splits its exit   rate equally between the two other states. This satisfies detailed balance and
   gives all three states the same event rate.
-- The simulation pages report the number of dwells actually recovered by the
-  decoder, which is smaller than the expected number of true dwells. The
+- The simulation pages report the number of dwells actually recovered by the  decoder, which is smaller than the expected number of true dwells. The
   difference is the missed-event effect these tools are meant to quantify.
 
 ## License
