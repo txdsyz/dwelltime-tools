@@ -6,12 +6,10 @@ from scipy.linalg import expm
 #st.set_page_config(page_title="DM Three-State Markov — Simulation Analysis", layout="centered")
 
 st.title("DM Three-State Markov Process Uncertainty Analysis")
-st.caption("dye-cycling mode, simulation-based")
 st.divider()
 
 
 def hmmgenerate(L, TRANS, EMIS, rng):
-    """Returns (seq, states), 1-based, matching MATLAB hmmgenerate."""
     L = int(L)
     trc = np.cumsum(TRANS, axis=1)
     emc = np.cumsum(EMIS, axis=1)
@@ -38,7 +36,7 @@ def _forward_backward(seq0, tr, e):
     numStates = tr.shape[0]
     L = len(seq0)
     fs = np.zeros((numStates, L + 1))
-    fs[0, 0] = 1.0                             # assume we start in state 1
+    fs[0, 0] = 1.0                             # assume start in state 1
     s = np.ones(L + 1)
     for t in range(1, L + 1):
         fs[:, t] = e[:, seq0[t - 1]] * (fs[:, t - 1] @ tr)
@@ -53,7 +51,6 @@ def _forward_backward(seq0, tr, e):
 
 
 def hmmtrain(seq, guessTR, guessE, maxiter=500, tol=1e-6):
-    """Baum-Welch, matching MATLAB hmmtrain defaults. seq is 1-based."""
     seq0 = np.asarray(seq, dtype=np.int64) - 1
     tr = np.array(guessTR, dtype=float)
     e = np.array(guessE, dtype=float)
@@ -105,7 +102,7 @@ def hmmviterbi(seq, tr, e):
     v = np.full(numStates, -np.inf)
     v[0] = 0.0                                 # start in state 1
     for t in range(L):
-        cand = v[:, None] + logTR              # (from, to)
+        cand = v[:, None] + logTR            
         best = np.argmax(cand, axis=0)
         pTR[:, t] = best
         v = logE[:, seq0[t]] + cand[best, np.arange(numStates)]
@@ -142,7 +139,7 @@ def eval3StateDMError(tau_a, tau_b, tau_c, T_on, T_off, T, f0, M, rng, progress=
 
     sta_num = 10
     sta_level = (np.arange(1, sta_num + 1)) * ((3 - 0) / sta_num)
-    pro = 0.5      # symmetric exit split, fixed model assumption
+    pro = 0.5      # symmetric exit split
 
     TB_win = (1 / T_on) / (1 / T_on + 1 / T_off)
     TA_win = (1 / T_off) / (1 / T_on + 1 / T_off)
@@ -215,16 +212,13 @@ def eval3StateDMError(tau_a, tau_b, tau_c, T_on, T_off, T, f0, M, rng, progress=
         Events = np.diff(swpt) * dtt           # length = numel(swpt) - 1
         Inista = np.array(Inista[:-1])
 
-        # dark handling: drop the dark segment itself plus one event either side;
-        # the first event is dropped too (start truncation)
-        # (blank collected as MATLAB 1-based indices, converted at the end)
         if Inista[0] == 0:
             blank = [1, 2]
         elif Inista.size >= 2 and Inista[1] == 0:
             blank = [1, 2, 3]
         else:
             blank = [1]
-        for i in range(3, swpt.size + 1):      # MATLAB: for i = 3:length(swpt)
+        for i in range(3, swpt.size + 1):    
             if i - 1 < Inista.size and Inista[i - 1] == 0:
                 blank += [i - 1, i, i + 1]
         blank = np.unique([b for b in blank if b <= Events.size])
