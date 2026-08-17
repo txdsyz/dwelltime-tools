@@ -229,10 +229,10 @@ with col2:
 dt_preview = 1e-3
 N_tr_preview = _round_half_away(T_full / dt_preview)
 total_preview = 2 * N_tr_preview * N_traces * M
-if total_preview > 2e8:
-    st.caption(f":red[Estimated workload is large ({total_preview:,.0f} state-steps) — this may run slowly.]")
-else:
-    st.caption(f"Estimated workload: {total_preview:,.0f} state-steps.")
+# if total_preview > 2e8:
+#     st.caption(f":red[Estimated workload is large ({total_preview:,.0f} state-steps) — this may run slowly.]")
+# else:
+#     st.caption(f"Estimated workload: {total_preview:,.0f} state-steps.")
 
 st.write("")
 if st.button("▶  Run simulation", type="primary", use_container_width=True):
