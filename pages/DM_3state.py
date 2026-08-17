@@ -304,9 +304,6 @@ else:
     st.caption("Expected number of complete dwells per state (same for A, B and C).")
     T_in = None
 
-st.caption(f"Cost: T/dt = {int(np.fix((T_in if T_in is not None else 0) / 1e-1)) if T_in else 0:,} "
-           f"steps per chain per run, 2 chains x {int(M)} runs. "
-           "MATLAB defaults are T = 11000 s and M = 50; those are slow here.")
 
 st.write("")
 if st.button("▶  Calculate", type="primary", use_container_width=True):
@@ -316,8 +313,8 @@ if st.button("▶  Calculate", type="primary", use_container_width=True):
 
         bar = st.progress(0.0, text="Running...")
 
-        def _prog(k, tot):
-            bar.progress(k / tot, text=f"run {k + 1} / {tot}")
+        # def _prog(k, tot):
+        #     bar.progress(k / tot, text=f"run {k + 1} / {tot}")
 
         rng = np.random.default_rng()
         (Rebias, Rerr, BiasA, BiasB, BiasC,
