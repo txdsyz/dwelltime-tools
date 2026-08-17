@@ -16,7 +16,7 @@ def hmmgenerate(L, TRANS, EMIS, rng):
     seq = np.zeros(L, dtype=np.int64)
     r1 = rng.random(L)
     r2 = rng.random(L)
-    cur = 0                                   # the original MATLAB starts in state 1
+    cur = 0                                   #  starts in state 1
     for i in range(L):
         st = int(np.searchsorted(trc[cur], r1[i], side='right'))
         if st >= trc.shape[1]:
@@ -113,7 +113,7 @@ def _round_half_away(x):
     return int(np.floor(x + 0.5)) if x >= 0 else -int(np.floor(-x + 0.5))
 
 
-# 2-State DM Simulation Core (ported from DM_Simulation_GUI.m / runDMSim)
+#Simulation Core 
 def runDMSim(ta0, tb0, N, M, T_full, dt, Ra, dtt, z_alpha,
              sta_level, A_GUESS, B_GUESS, EMIS2, T_TRANS, T_EMIS,
              minValid, rng):
@@ -137,7 +137,7 @@ def runDMSim(ta0, tb0, N, M, T_full, dt, Ra, dtt, z_alpha,
             states = np.concatenate([states[1:], [states[-1]]])
 
             _, Tstates = hmmgenerate(N_tr, T_TRANS, T_EMIS, rng)
-            WindowI = Tstates - 1              # 0=off, 1=on (not shifted, matches MATLAB)
+            WindowI = Tstates - 1              # 0=off, 1=on 
 
             RawI = (states * WindowI).astype(float)   # 0=off, 1=a, 2=b
 
