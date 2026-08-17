@@ -84,7 +84,6 @@ def missN(tau, delta_t, cover=0.9):
     val = np.log(1 - cover) / np.log(1 + tau / delta_t * (np.exp(-delta_t / tau) - 1))
     return max(0, int(val) - 1)
 
-#  count , T conversion (discard_T depends on T, so iterate)
 
 def computeDiscard(T, tau_a, tau_b):
     A = tau_a / (tau_a + tau_b)
@@ -105,7 +104,7 @@ def T_from_count(count_target, tau_a, tau_b):
         T = T_new
     return T
 
-#  core computation (parametrised by T)
+#  core computation
 
 def computeMarkov(tau_a, tau_b, f0, T):
     alpha   = 0.05
@@ -158,7 +157,6 @@ def computeMarkov(tau_a, tau_b, f0, T):
     return Rebias_total, Rerr_total, Bias_a, Bias_b, Std_a, Std_b, N
 
 # UI
-
 
 col1, col2 = st.columns(2)
 with col1:
