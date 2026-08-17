@@ -203,10 +203,6 @@ with col2:
     f0 = st.number_input(r"Sampling frequency $f_0$ (Hz)", min_value=1e-9, value=1.0, format="%.4f")
     M = st.number_input("Monte Carlo runs M", min_value=1, value=10, step=1)
 
-st.caption("Traces are terminated at random, so individual lengths are drawn from an "
-           "exponential distribution with mean L. Number of traces N is per simulation "
-           "run; Monte Carlo runs M is the number of independent runs bias/variation are "
-           "computed across.")
 
 st.write("")
 if st.button("▶  Run simulation", type="primary", use_container_width=True):
