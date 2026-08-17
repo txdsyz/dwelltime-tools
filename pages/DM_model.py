@@ -214,7 +214,7 @@ if mode == "Total sampling points (N)":
     N_pts = float(N_pts_in)
 else:
     countA = st.number_input("Dwell A average count", min_value=1e-9, value=2180.0, format="%.4f")
-    st.caption("Note: enter the Dwell A count. Dwell B is derived from the fixed Na:Nb ratio.")
+    #st.caption("Note: enter the Dwell A count. Dwell B is derived from the fixed Na:Nb ratio.")
     N_pts = None
 
 st.write("")
