@@ -341,7 +341,6 @@ if st.button("▶  Calculate", type="primary", use_container_width=True):
         st.write(f"Dwell A average count : `{Na:.1f}`")
         st.write(f"Dwell B average count : `{Nb:.1f}`")
         st.write(f"Dwell C average count : `{Nc:.1f}`")
-        st.caption(f"T : {T:.0f} s   |   N pts : {N_pts:.0f}")
 
     except Exception as ex:
         st.error(f"Error: {ex}")
