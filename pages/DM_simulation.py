@@ -214,7 +214,6 @@ def runDMSim(ta0, tb0, N, M, T_full, dt, Ra, dtt, z_alpha,
 
 
 # UI
-
 col1, col2 = st.columns(2)
 with col1:
     tau_a = st.number_input(r"$\tau_a$ (s)", min_value=1e-9, value=10.0, format="%.4f")
@@ -226,11 +225,6 @@ with col2:
     T_off = st.number_input(r"$T_{off}$ (s)", min_value=1e-9, value=5.0, format="%.4f")
     f0 = st.number_input(r"Sampling frequency $f_0$ (Hz)", min_value=1e-9, value=1.0, format="%.4f")
     M = st.number_input("Monte Carlo runs M", min_value=1, value=5, step=1)
-
-st.caption("Mean durations of the on/off exposure window are T_on / T_off. Trace length "
-           "T_full is fixed (not random); the number of bright windows per trace is about "
-           "T_full/(T_on+T_off). Number of traces N is per simulation run; Monte Carlo runs "
-           "M is the number of independent runs bias/variation are computed across.")
 
 dt_preview = 1e-3
 N_tr_preview = _round_half_away(T_full / dt_preview)
@@ -269,7 +263,7 @@ if st.button("▶  Run simulation", type="primary", use_container_width=True):
         T_TRANS = np.array([[TBw + TAw * TEw, TAw - TAw * TEw],
                              [TBw - TBw * TEw, TAw + TBw * TEw]])
 
-        with st.spinner(f"Simulating {int(M)} Monte Carlo runs of {int(N_traces)} traces each..."):
+        with st.spinner(f"Runnning..."):
             rng = np.random.default_rng()
             (ta, tb, sa, sb, ba, bb, Rsa, Rsb, Rba, Rbb, nva, nEvt) = runDMSim(
                 tau_a, tau_b, int(N_traces), int(M), T_full, dt, Ra, dtt, z_alpha,
