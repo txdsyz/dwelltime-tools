@@ -226,7 +226,7 @@ if st.button("▶  Run simulation", type="primary", use_container_width=True):
                             [0, 1], [0, 1], [0, 1], [0, 1], [0, 1]], dtype=float).T
         EMIS = np.eye(2)
 
-        with st.spinner(f"Simulating {int(M)} Monte Carlo runs of {int(N_traces)} traces each..."):
+        with st.spinner(f"Simulating..."):
             rng = np.random.default_rng()
             (ta, tb, sa, sb, ba, bb, Rsa, Rsb, Rba, Rbb, nva, nEvt) = runCMSim(
                 tau_a, tau_b, int(N_traces), int(M), L, dt, Ra, dtt, z_alpha, sigma0,
