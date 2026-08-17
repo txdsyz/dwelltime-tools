@@ -249,10 +249,10 @@ if st.button("▶  Calculate", type="primary", use_container_width=True):
         st.write(f"Dwell A average count: `{Na * M:.1f}`")
         st.write(f"Dwell B average count: `{Nb * M:.1f}`")
 
-        if N_pts is None:
-            st.caption(f"Derived total sampling points N = {N_pts_use:,.0f}")
-        else:
-            st.caption(f"Derived Dwell A count = {Na * M:.1f}   |   N pts = {N_pts_use:,.0f}")
+        # if N_pts is None:
+        #     st.caption(f"Derived total sampling points N = {N_pts_use:,.0f}")
+        # else:
+        #     st.caption(f"Derived Dwell A count = {Na * M:.1f}   |   N pts = {N_pts_use:,.0f}")
 
     except Exception as e:
         st.error(f"Error: {e}")
