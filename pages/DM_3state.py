@@ -313,8 +313,8 @@ if st.button("▶  Calculate", type="primary", use_container_width=True):
 
         bar = st.progress(0.0, text="Running...")
 
-        # def _prog(k, tot):
-        #     bar.progress(k / tot, text=f"run {k + 1} / {tot}")
+        def _prog(k, tot):
+            bar.progress(k / tot, text=f"run {k + 1} / {tot}")
 
         rng = np.random.default_rng()
         (Rebias, Rerr, BiasA, BiasB, BiasC,
