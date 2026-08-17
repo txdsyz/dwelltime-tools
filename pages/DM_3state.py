@@ -18,7 +18,7 @@ def hmmgenerate(L, TRANS, EMIS, rng):
     seq = np.zeros(L, dtype=np.int64)
     r1 = rng.random(L)
     r2 = rng.random(L)
-    cur = 0                                   # MATLAB starts in state 1
+    cur = 0                                   # starts in state 1
     for i in range(L):
         st = int(np.searchsorted(trc[cur], r1[i], side='right'))
         if st >= nS:
