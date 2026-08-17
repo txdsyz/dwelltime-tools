@@ -280,7 +280,7 @@ if st.button("▶  Calculate", type="primary", use_container_width=True):
     try:
         T = T_in if T_in is not None else count_in * tau_sum
 
-        with st.spinner(f"Simulating {int(M)} HMM trajectories..."):
+        with st.spinner(f"Simulating ..."):
             rng = np.random.default_rng()
             (Rebias, Rerr, BiasA, BiasB, BiasC,
              StdA, StdB, StdC, Na, Nb, Nc) = run3StateSim(
