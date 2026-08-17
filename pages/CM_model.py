@@ -216,7 +216,7 @@ if st.button("▶  Calculate", type="primary", use_container_width=True):
         if T_input is None:
             st.caption(f"Derived total sampling points N = {T * f0:,.0f}   (dwell count = {N:.4f})")
         else:
-            st.caption(f"Derived dwell average count = {N:.4f}")
+            st.caption(f"Dwell A/B average count = {N:.4f}")
 
     except Exception as e:
         st.error(f"Error: {e}")
