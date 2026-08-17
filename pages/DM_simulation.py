@@ -4,7 +4,6 @@ import numpy as np
 #st.set_page_config(page_title="DM Two-State Markov — Simulation", layout="centered")
 
 st.title("DM Two-State Markov Process Simulation")
-st.caption("simulation-based, dye-cycling (on/off window)")
 st.divider()
 
 
