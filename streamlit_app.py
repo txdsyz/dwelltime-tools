@@ -2,13 +2,23 @@ import streamlit as st
 
 st.set_page_config(page_title="Dwell-time analysis tools", layout="centered")
 
-pages = [
-    st.Page("views/home.py",          title="Home", default=True),
-    st.Page("views/cm_model.py",      title="CM model"),
-    st.Page("views/dm_model.py",      title="DM model"),
-    st.Page("views/cm_simulation.py", title="CM simulation"),
-    st.Page("views/dm_simulation.py", title="DM simulation"),
-    st.Page("views/cm_3state.py",     title="CM 3-state"),
-    st.Page("views/dm_3state.py",     title="DM 3-state"),
-]
-st.navigation(pages).run()
+st.title("Accuracy and precision limits of dwell-time analysis")
+st.caption("Two-state and three-state Markov kinetics, "
+           "Continuous Mode and DyeCycling Mode")
+st.divider()
+
+st.markdown("""
+Pick a tool from the sidebar.
+
+**Analytical error models** — closed-form bias and confidence interval,
+results are instant.
+
+- *CM model* — a single trace of fixed length
+- *DM model* — alternating bright and dark windows
+
+**Monte Carlo simulations** — trajectories are generated and re-analysed,
+so these take from seconds to minutes.
+
+- *CM / DM simulation* — two-state
+- *CM / DM 3-state* — three-state, symmetric branching (p = 0.5)
+""")
