@@ -31,6 +31,21 @@ streamlit run streamlit_app.py
 
 Requires Python 3.9 or newer.
 
+MATLAB versions
+
+The Matlab_GUI folder holds the original MATLAB GUIs. 
+
+| File	| Purpose |
+|---|---|
+| CM_GUI.m, DM_GUI.m |	analytical error models, two-state |
+| CM_Sim_GUI.m, DM_Sim_GUI.m |	Monte Carlo simulations, two-state |
+| ThreeState_CM_GUI.m, ThreeState_DM_GUI.m |	Monte Carlo simulations, three-state |
+
+Run a GUI by typing its name in the MATLAB command window, e.g. DM_GUI. 
+
+
+
+
 ## Notes
 
 - The three-state models assume: every state splits its exit   rate equally between the two other states. This satisfies detailed balance and
