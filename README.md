@@ -2,6 +2,15 @@
 
 Tools for analyze uncertainty  uncertainties in the kinetic rates inference from two-state and three-state Markov processes, in Continuous Mode (CM) and DyeCycling Mode (DM).
 
+# Dwell-time analysis tools
+
+**[▶ Open the interactive app](https://dwelltime-tools.streamlit.app)**
+&nbsp;·&nbsp; no installation required
+
+Tools for quantifying the uncertainty of kinetic rates inferred from two-state and three-state Markov processes, in Continuous Mode (CM) and DyeCycling Mode(DM).
+
+
+
 ## Tools
 
 **Analytical error models** — closed-form bias and 95 % confidence interval.
